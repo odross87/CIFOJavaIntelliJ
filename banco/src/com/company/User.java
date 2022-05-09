@@ -1,4 +1,4 @@
 package com.company;
 
-public class BirdDB {
+public class User {
 }
