@@ -1,15 +1,13 @@
 public class Rides {
 
     private String name;
-    private String type;
-    private double maxHeight;
+    private double minHeight;
     private String park;
     private String land;
 
-    public Rides(String name, String type, double maxHeight, String park, String land) {
+    public Rides(String name, Double minHeight, String park, String land) {
         this.name = name;
-        this.type = type;
-        this.maxHeight = maxHeight;
+        this.minHeight = minHeight;
         this.park = park;
         this.land = land;
     }
@@ -22,20 +20,13 @@ public class Rides {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
+
+    public double getMinHeight() {
+        return minHeight;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public double getMaxHeight() {
-        return maxHeight;
-    }
-
-    public void setMaxHeight(double maxHeight) {
-        this.maxHeight = maxHeight;
+    public void setMinHeight(double maxHeight) {
+        this.minHeight = maxHeight;
     }
 
     public String getPark() {
@@ -53,7 +44,6 @@ public class Rides {
     public void setLand(String land) {
         this.land = land;
     }
-
 
 
 }

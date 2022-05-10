@@ -23,7 +23,7 @@ public class Conexion  {
     }
 
     public void createTable() throws SQLException {
-        String sql = "CREATE TABLE rides (ID int(5) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50), type VARCHAR(50), maxHeight DOUBLE, park VARCHAR(50), land VARCHAR(50) )";
+        String sql = "CREATE TABLE IF NOT EXISTS  rides (ID int AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50), minHeight DOUBLE, park VARCHAR(50), land VARCHAR(50) )";
         System.out.println("Created table cards");
 
         Statement statement = connection.createStatement();
