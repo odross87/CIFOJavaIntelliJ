@@ -6,13 +6,13 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
-    <persistence-unit name="mysql-jpa-student">
+    <persistence-unit name="wdwdb">
         <class>Student</class>
         <properties>
             <property name="javax.persistence.jdbc.driver"
                       value="org.h2.Driver" />
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:h2:tcp://localhost/~/dataBaseH2/campusPayPal" />
+                      value="jdbc:h2:tcp://localhost/~\H2\wdw" />
             <property name="javax.persistence.jdbc.user"
                       value="albert" />
             <property name="javax.persistence.jdbc.password"
