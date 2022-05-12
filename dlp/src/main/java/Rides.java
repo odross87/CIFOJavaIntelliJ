@@ -45,5 +45,10 @@ public class Rides {
         this.land = land;
     }
 
+    @Override
+    public String toString(){
+        return "Name: " + this.getName() + " \nMinimum Height: " + this.getMinHeight() + "\nLocation: " + this.getPark() +", "+ this.getLand();
+    }
+
 
 }

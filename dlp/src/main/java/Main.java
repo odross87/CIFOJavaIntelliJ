@@ -36,12 +36,74 @@ public class Main {
 
     }
 
-    private static void updateARide(Scanner scan, Conexion conexion) {
+    private static void updateARide(Scanner scan, Conexion conexion) throws SQLException {
+        int btn;
         int id;
+        String column;
+        String newValue;
         System.out.println("**** Update an existing ride ****");
         System.out.println("Enter the ID of the ride");
+        String fake =scan.nextLine();
         id = Integer.valueOf(scan.nextLine());
 
+        Rides ride = findRide(id, conexion);
+        System.out.println(ride.toString());
+
+        System.out.println("Which field do you want to update?");
+        System.out.println("1.- Name");
+        System.out.println("2.- Height");
+        System.out.println("3.- Park");
+        System.out.println("4.- Land");
+        System.out.println("0.- Cancel");
+
+        btn = Integer.valueOf(scan.nextLine());
+        btn = Integer.valueOf(scan.nextLine());
+
+        while (true) {
+
+
+            if (btn == 0) {
+                break;
+            } else if (btn == 1) {
+                column = "name";
+                System.out.println("Write a new name");
+                newValue = scan.nextLine();
+
+            } else if (btn == 2) {
+                column = "minHeight";
+                System.out.println("Write a height");
+                newValue = scan.nextLine();
+            } else if (btn == 3) {
+                column = "park";
+                System.out.println("Write a new park name");
+                newValue = scan.nextLine();
+
+            } else if (btn == 4) {
+                column = "land";
+                System.out.println("Write a new land name");
+                newValue = scan.nextLine();
+            } else {
+                System.out.println("Canceling");
+                break;
+            }
+
+            String sql = "UPDATE rides SET "+ column +" = '" + newValue + "' WHERE ID=" + id;
+            Statement statement = conexion.conexionHecha().createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+        }
+
+
+
+    }
+
+    public static Rides findRide(int id,Conexion conexion) throws SQLException {
+        String sql = "SELECT * FROM RIDES WHERE ID=4";
+        Statement statement = conexion.conexionHecha().createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        Rides ride = new Rides(resultSet.getNString("name"), resultSet.getDouble("minHeight"), resultSet.getNString("park"), resultSet.getNString("land"));
+
+        return ride;
     }
 
     private static void listAllRides(Conexion conexion) throws SQLException {
